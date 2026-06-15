@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "nRUlO2tXA2J2kEf0mrMbg"
+uri = "file://decide-facil-quiz.tar.gz"
+type = "unspecified"
+title = "decide-facil-quiz.html"
