@@ -1,0 +1,97 @@
+Crea un lead magnet interactivo en HTML con el siguiente nombre: Quiz: ¿Qué tipo de decisor eres?
+
+CONTEXTO DEL LEAD MAGNET
+Este lead magnet es para personas mentalmente saturadas que quieren recuperar claridad mental y confianza en su juicio al tomar decisiones. Resuelve el siguiente problema puntual: identificar su estilo de toma de decisiones y las limitaciones que enfrentan al decidir. Al ver el resultado, el usuario naturalmente querrá adquirir Decide Fácil para mejorar su proceso de decisión.
+
+ESTRUCTURA OBLIGATORIA DE LA PÁGINA (en este orden exacto)
+
+SECCIÓN PROMESA (arriba de todo)
+
+Título principal: "¿Qué tipo de decisor eres? Descúbrelo ahora"
+Subtítulo: "Identifica tu estilo de decisión y cómo mejorarlo en minutos"
+Descripción breve: "Este quiz te ayudará a entender tu patrón de toma de decisiones y te ofrecerá recomendaciones personalizadas. Toma el control de tu vida y aprende a decidir sin culpa."
+SECCIÓN INSTRUCCIONES DE USO
+
+Título: "¿Cómo usar esta herramienta?"
+Paso 1: "Responde cada pregunta seleccionando la opción que más te represente."
+Paso 2: "Haz clic en 'Siguiente' para avanzar a la siguiente pregunta."
+Paso 3: "Al final, recibirás tu perfil de decisor y consejos para mejorar tu confianza."
+Frase motivadora al final: "¡Vamos a descubrirlo!"
+SECCIÓN LA HERRAMIENTA INTERACTIVA
+
+Tipo de herramienta: Quiz de diagnóstico o perfil
+Este quiz tiene 6 preguntas, organizadas de la siguiente manera:
+Pregunta 1: "Cuando se trata de decisiones importantes, ¿cómo te sientes?"
+Opción A: Confundido
+Opción B: Tranquilo
+Opción C: Ansioso
+Pregunta 2: "¿Cuánto tiempo te toma decidir en situaciones cotidianas?"
+Opción A: Más de una hora
+Opción B: Menos de 10 minutos
+Opción C: Entre 10 minutos y una hora
+Pregunta 3: "¿Te arrepientes frecuentemente de tus decisiones?"
+Opción A: Sí
+Opción B: A veces
+Opción C: No
+Pregunta 4: "¿Sientes presión al decidir entre varias opciones?"
+Opción A: Siempre
+Opción B: A veces
+Opción C: Nunca
+Pregunta 5: "¿Te gusta tener varias alternativas al tomar decisiones?"
+Opción A: No, me abruma
+Opción B: Sí, pero a veces me confunde
+Opción C: Totalmente de acuerdo
+Pregunta 6: "¿Qué tipo de decisiones te resultan más difíciles?"
+Opción A: Las cotidianas (comida, ropa)
+Opción B: Las importantes (trabajo, relaciones)
+Opción C: Ninguna
+Al finalizar, el usuario recibe un perfil definido en base a sus respuestas:
+Perfil 1: "Decisor Confundido: Tiendes a sentirte abrumado y con poca confianza."
+Perfil 2: "Decisor Eficiente: Tienes habilidad, pero te agobia el exceso de opciones."
+Perfil 3: "Decisor Seguro: Tu confianza te permite decidir de manera efectiva."
+El resultado debe aparecer en la misma página, debajo de la herramienta, sin recargar la página.
+SECCIÓN PESTAÑAS DE VALOR — TUMBADORAS DE CREENCIAS
+
+Título de la sección: "Ahora que conoces tu estilo, descubre la verdad detrás de tus creencias limitantes"
+Descripción introductoria: "Vamos a desmontar las creencias que pueden estar afectando tu capacidad para decidir con confianza."
+La sección contiene exactamente 3 tabs acordeón (pestañas expandibles), cada una tumbando una creencia limitante diferente.
+TAB 1 — Primera Creencia Limitante:
+
+Encabezado del tab: "¿Por qué me siento ansioso al decidir?"
+Contenido del tab:
+Párrafo 1: "Es normal sentir ansiedad al tomar decisiones. Muchas personas lo sienten, y eso está bien."
+Párrafo 2 (Tumbador de creencia): "Sin embargo, la ansiedad puede ser una señal de que estás abrumado por demasiadas opciones. La clave es simplificar."
+Párrafo 3 (Instalación de creencia nueva): "Adoptar un enfoque más simple puede liberarte de la presión y permitirte decidir con calma."
+CTA mini: "Descubre cómo Decide Fácil te ayuda a enfrentar tus decisiones." (href al link de afiliado)
+TAB 2 — Segunda Creencia Limitante:
+
+Encabezado del tab: "¿Por qué a veces regrese a la parálisis?"
+Contenido del tab:
+Párrafo 1: "Recuperar la confianza en la toma de decisiones puede ser un proceso complicado."
+Párrafo 2 (Tumbador de creencia): "Hay momentos en que la vida se siente abrumadora, pero eso no significa que no puedas avanzar."
+Párrafo 3 (Instalación de creencia nueva): "Lo importante es contar con herramientas adecuadas que te orienten a salir de la parálisis."
+CTA mini: "Conoce las herramientas de Decide Fácil." (href al link de afiliado)
+TAB 3 — Tercera Creencia Limitante:
+
+Encabezado del tab: "¿Por qué no soy capaz de decidir como antes?"
+Contenido del tab:
+Párrafo 1: "Tu mente puede estar saturada y eso afecta tu capacidad de juicio."
+Párrafo 2 (Tumbador de creencia): "Esto no significa que no tengas la capacidad, solo que necesitas un poco de apoyo."
+Párrafo 3 (Instalación de creencia nueva): "Recuerda que con las herramientas apropiadas, puedes potenciar tu capacidad de decisión."
+CTA mini: "Descubre cómo Decide Fácil puede ser lo que necesitas." (href al link de afiliado)
+SECCIÓN DE TRANSICIÓN HACIA LA OFERTA
+
+Título de transición: "Ahora que sabes tu estilo de decisión, es hora de actuar"
+Párrafo de transición principal: "Understanding your decision-making style is the first step towards improvement. Decide Fácil te ofrece un sistema práctico que te permitirá decidir sin culpa y recuperar tu confianza."
+Párrafo secundario (Valor agregado): "Con Decide Fácil, recibirás herramientas prácticas que te ayudarán a simplificar tu toma de decisiones y a actuar de manera efectiva."
+Botón CTA principal: texto del botón: "Accede a Decide Fácil ahora" — el href de este botón debe ser exactamente: [https://go.hotmart.com/K106051077A]
+Texto debajo del botón: "Acceso inmediato • Garantía de 7 días • Sin riesgo"
+DISEÑO VISUAL
+
+Estilo: moderno, limpio, profesional. Fondo blanco o gris muy claro (#f8f9fa). Tipografía sans-serif (usa Google Fonts: Inter o Poppins).
+Color de acento principal: #4CAF50 (verde claro para tranquilidad).
+Color de acento secundario: #FF9800 (naranja para cálido).
+El botón CTA debe ser grande (padding mínimo 16px 32px), visible, con el color de acento y texto en blanco, con border-radius de 8px.
+Las pestañas de valor deben tener un diseño visual atractivo: fondo blanco o ligeramente coloreado, bordes sutiles (1px, color gris claro), encabezado con fondo ligeramente más oscuro que el contenido, ícono de flecha (▼) que rota 180° cuando se expande, transición suave (0.3s) al expandir/contraer, sombra sutil al pasar el mouse sobre el encabezado.
+Diseño completamente responsive.
+Sin imágenes externas. Todo el diseño con CSS puro.
