@@ -347,7 +347,7 @@
         <input type="text"  id="cap-nombre" placeholder="Tu nombre" autocomplete="given-name" />
         <input type="email" id="cap-email"  placeholder="Tu email" autocomplete="email" />
         <button class="btn-submit" id="cap-submit" onclick="submitCapture()">Quiero mi herramienta gratis →</button>
-        <span class="skip-link" onclick="skipCapture()">No gracias, quiero el SISTEMA que me ayude AHORA</span>
+        <span class="skip-link" onclick="skipCapture()">No gracias, ver la herramienta ahora</span>
       </div>
 
       <div id="result-cta" style="display:none; margin-top:28px;">
@@ -374,16 +374,15 @@
     btn.disabled = true;
     btn.textContent = "Enviando...";
 
-    const form = document.createElement("form");
-    form.method = "POST"; form.action = SYSTEME_URL; form.target = "hidden-iframe"; form.style.display = "none";
-    const addField = (name, val) => { const i = document.createElement("input"); i.type = "hidden"; i.name = name; i.value = val; form.appendChild(i); };
-    addField("first_name", nombre);
-    addField("email", email);
-    const iframe = document.createElement("iframe");
-    iframe.name = "hidden-iframe"; iframe.style.display = "none";
-    document.body.appendChild(iframe);
-    document.body.appendChild(form);
-    form.submit();
+    // Usar API de Systeme.io para registrar el contacto
+    fetch('https://api.systeme.io/api/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-Key': '1n6c0sbb4mvtov2tz55fvszhn8ad6egzopxzb1nk9fe50uj0ad8m9428utcmewj9'
+      },
+      body: JSON.stringify({ email: email, firstName: nombre, fields: [] })
+    }).catch(() => {}); // silenciar errores de red
 
     setTimeout(() => {
       document.getElementById("email-capture-box").innerHTML = `
