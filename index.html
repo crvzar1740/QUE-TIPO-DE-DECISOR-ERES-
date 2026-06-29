@@ -347,7 +347,7 @@
         <input type="text"  id="cap-nombre" placeholder="Tu nombre" autocomplete="given-name" />
         <input type="email" id="cap-email"  placeholder="Tu email" autocomplete="email" />
         <button class="btn-submit" id="cap-submit" onclick="submitCapture()">Quiero mi herramienta gratis →</button>
-        <span class="skip-link" onclick="skipCapture()">No gracias, quiero ver el sistema que me ayuda ahora</span>
+        <span class="skip-link" onclick="skipCapture()">No gracias, quiero el SISTEMA que me ayude AHORA</span>
       </div>
 
       <div id="result-cta" style="display:none; margin-top:28px;">
@@ -397,9 +397,7 @@
   }
 
   function skipCapture() {
-    document.getElementById("email-capture-box").style.display = "none";
-    document.getElementById("result-cta").style.display = "block";
-    document.getElementById("result-cta").scrollIntoView({ behavior: "smooth", block: "center" });
+    window.location.href = HOTMART;
   }
 
   function restartQuiz() {
