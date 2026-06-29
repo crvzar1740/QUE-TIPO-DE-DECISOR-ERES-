@@ -8,13 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    /* ─── Reset & Base ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --navy:        #0A0F1D;
       --sky:         #38BDF8;
-      --sky-dim:     rgba(56,189,248,.12);
       --orange:      #F97316;
       --orange-glow: rgba(249,115,22,.45);
       --glass-bg:    rgba(255,255,255,.03);
@@ -24,44 +21,24 @@
       --radius-lg:   20px;
       --radius-md:   12px;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--navy);
-      color: var(--white);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-
-    /* ─── Scrollbar ─── */
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--navy); color: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: rgba(56,189,248,.2); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(56,189,248,.4); }
 
-    /* ─── Glow Orbs ─── */
     .orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(130px);
-    }
+    .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
     .orb-1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(56,189,248,.13) 0%, transparent 70%); top: -220px; left: -200px; }
     .orb-2 { width: 550px; height: 550px; background: radial-gradient(circle, rgba(56,189,248,.09) 0%, transparent 70%); bottom: 5%; right: -160px; }
     .orb-3 { width: 450px; height: 450px; background: radial-gradient(circle, rgba(249,115,22,.07) 0%, transparent 70%); top: 45%; left: 42%; }
 
-    /* ─── Layout ─── */
     .wrap { position: relative; z-index: 1; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .container-sm { max-width: 720px; margin: 0 auto; padding: 0 24px; }
     .container-quiz { max-width: 680px; margin: 0 auto; padding: 0 24px; }
     section { padding: 100px 0; }
     .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--glass-bd), transparent); }
 
-    /* ─── Typography ─── */
     h1 { font-size: clamp(2.2rem, 5vw, 3.9rem); font-weight: 900; line-height: 1.1; letter-spacing: -.03em; }
     h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -.025em; line-height: 1.2; }
     h3 { font-size: 1rem; font-weight: 700; }
@@ -70,7 +47,6 @@
     .muted { color: var(--muted); }
     .center { text-align: center; }
 
-    /* ─── Badge ─── */
     .badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(56,189,248,.08); border: 1px solid rgba(56,189,248,.2);
@@ -79,10 +55,7 @@
       margin-bottom: 28px;
     }
     .badge-dot { width: 6px; height: 6px; background: var(--sky); border-radius: 50%; }
-    .badge-orange { background: rgba(249,115,22,.08); border-color: rgba(249,115,22,.2); color: #FB923C; }
-    .badge-orange .badge-dot { background: #FB923C; }
 
-    /* ─── Buttons ─── */
     .btn-cta {
       display: inline-flex; align-items: center; gap: 8px;
       background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
@@ -90,14 +63,9 @@
       padding: 16px 36px; border-radius: var(--radius-md); border: none; cursor: pointer;
       text-decoration: none;
       box-shadow: 0 0 30px var(--orange-glow), 0 4px 16px rgba(249,115,22,.3);
-      transition: all .3s ease;
-      letter-spacing: -.01em;
+      transition: all .3s ease; letter-spacing: -.01em;
     }
-    .btn-cta:hover {
-      box-shadow: 0 0 55px rgba(249,115,22,.65), 0 8px 24px rgba(249,115,22,.4);
-      transform: translateY(-2px) scale(1.02);
-      background: linear-gradient(135deg, #FB923C 0%, #F97316 100%);
-    }
+    .btn-cta:hover { box-shadow: 0 0 55px rgba(249,115,22,.65), 0 8px 24px rgba(249,115,22,.4); transform: translateY(-2px) scale(1.02); background: linear-gradient(135deg, #FB923C 0%, #F97316 100%); }
     .btn-cta:active { transform: translateY(0) scale(.99); }
     .btn-cta:disabled { opacity: .38; cursor: not-allowed; transform: none; box-shadow: none; }
 
@@ -108,44 +76,32 @@
       border-radius: 10px; border: 1px solid rgba(56,189,248,.3); cursor: pointer;
       text-decoration: none; transition: all .3s ease;
     }
-    .btn-sky:hover { background: rgba(56,189,248,.08); border-color: rgba(56,189,248,.5); box-shadow: 0 0 20px rgba(56,189,248,.15); }
+    .btn-sky:hover { background: rgba(56,189,248,.08); border-color: rgba(56,189,248,.5); }
 
-    /* ─── Glass Card ─── */
-    .glass {
-      background: var(--glass-bg); border: 1px solid var(--glass-bd);
-      border-radius: var(--radius-lg); backdrop-filter: blur(12px);
-    }
+    .glass { background: var(--glass-bg); border: 1px solid var(--glass-bd); border-radius: var(--radius-lg); backdrop-filter: blur(12px); }
     .glass-hover { transition: all .3s ease; }
-    .glass-hover:hover {
-      background: rgba(255,255,255,.05); border-color: rgba(56,189,248,.2);
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(0,0,0,.3), 0 0 0 1px rgba(56,189,248,.1);
-    }
+    .glass-hover:hover { background: rgba(255,255,255,.05); border-color: rgba(56,189,248,.2); transform: translateY(-2px); box-shadow: 0 20px 40px rgba(0,0,0,.3); }
 
-    /* ─── Hero ─── */
-    .hero { padding: 110px 0 90px; text-align: center; }
+    /* HERO */
+    .hero { padding: 110px 0 70px; text-align: center; }
     .hero h1 { margin-bottom: 24px; }
     .hero .sub { font-size: 1.2rem; color: var(--muted); max-width: 540px; margin: 0 auto 14px; }
     .hero .desc { font-size: 1rem; color: var(--muted); max-width: 510px; margin: 0 auto 48px; }
-    .hero-cta { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    .trust { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 48px; }
+    .trust { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 40px; }
     .trust-item { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .875rem; }
 
-    /* ─── Steps ─── */
-    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 52px; }
+    /* STEPS */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 52px; }
     .step-card { padding: 28px; }
     .step-inner { display: flex; align-items: flex-start; gap: 16px; }
-    .step-num {
-      min-width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.3);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: .9rem; color: var(--sky); flex-shrink: 0;
-    }
+    .step-num { min-width: 40px; height: 40px; border-radius: 50%; background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.3); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; color: var(--sky); flex-shrink: 0; }
     .step-card h3 { margin-bottom: 8px; color: var(--white); }
     .step-card p  { font-size: .9rem; color: var(--muted); }
+    .step-highlight { border-color: rgba(249,115,22,.3) !important; background: rgba(249,115,22,.05) !important; }
+    .step-highlight .step-num { background: rgba(249,115,22,.1); border-color: rgba(249,115,22,.3); color: #FB923C; }
     .motivator { text-align: center; margin-top: 36px; color: var(--sky); font-weight: 600; font-size: 1.05rem; }
 
-    /* ─── Quiz ─── */
+    /* QUIZ */
     .quiz-wrap { padding: 36px 40px; }
     .quiz-header { margin-bottom: 32px; }
     .quiz-meta { display: flex; justify-content: space-between; font-size: .8rem; color: var(--muted); margin-bottom: 10px; }
@@ -154,130 +110,65 @@
     .progress-fill { height: 100%; background: linear-gradient(90deg, var(--sky), #60D4FA); border-radius: 4px; transition: width .4s ease; }
     .quiz-question { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 24px; line-height: 1.45; }
     .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-    .option {
-      display: flex; align-items: center; gap: 12px;
-      background: var(--glass-bg); border: 1px solid var(--glass-bd);
-      border-radius: var(--radius-md); padding: 14px 20px;
-      cursor: pointer; color: var(--white); font-family: inherit;
-      font-size: .95rem; text-align: left; width: 100%;
-      transition: all .25s ease;
-    }
+    .option { display: flex; align-items: center; gap: 12px; background: var(--glass-bg); border: 1px solid var(--glass-bd); border-radius: var(--radius-md); padding: 14px 20px; cursor: pointer; color: var(--white); font-family: inherit; font-size: .95rem; text-align: left; width: 100%; transition: all .25s ease; }
     .option:hover { background: rgba(56,189,248,.06); border-color: rgba(56,189,248,.3); color: var(--sky); }
     .option.selected { background: rgba(56,189,248,.1); border-color: var(--sky); color: var(--sky); }
-    .opt-letter {
-      min-width: 28px; height: 28px; border-radius: 50%;
-      background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: .8rem; font-weight: 700; color: var(--sky); flex-shrink: 0;
-    }
+    .opt-letter { min-width: 28px; height: 28px; border-radius: 50%; background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.3); display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; color: var(--sky); flex-shrink: 0; }
     .quiz-actions { display: flex; justify-content: flex-end; }
 
-    /* ─── Result ─── */
-    .result-card {
-      border-radius: var(--radius-lg); padding: 44px 40px; text-align: center;
-      animation: fadeUp .6s ease forwards;
-    }
+    /* RESULT */
+    .result-card { border-radius: var(--radius-lg); padding: 44px 40px; text-align: center; animation: fadeUp .6s ease forwards; }
     .result-emoji { font-size: 3rem; margin-bottom: 16px; }
-    .result-badge {
-      display: inline-block; border-radius: 100px; padding: 4px 16px;
-      font-size: .75rem; font-weight: 700; letter-spacing: .05em;
-      text-transform: uppercase; margin-bottom: 16px;
-    }
+    .result-badge { display: inline-block; border-radius: 100px; padding: 4px 16px; font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 16px; }
     .result-name { font-size: 1.9rem; font-weight: 900; letter-spacing: -.025em; margin-bottom: 16px; }
-    .result-desc { color: var(--muted); line-height: 1.7; max-width: 460px; margin: 0 auto 32px; }
-    .result-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .result-desc { color: var(--muted); line-height: 1.7; max-width: 460px; margin: 0 auto 24px; }
+    .result-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 
-    /* ─── Accordion ─── */
-    .accordion-list { display: flex; flex-direction: column; gap: 16px; max-width: 780px; margin: 52px auto 0; }
-    .acc-item { border-radius: var(--radius-lg); overflow: hidden; transition: border-color .3s; }
-    .acc-item:hover { border-color: rgba(56,189,248,.2); }
-    .acc-trigger {
-      display: flex; align-items: center; gap: 12px; width: 100%;
-      padding: 20px 24px; background: transparent; border: none; cursor: pointer;
-      color: var(--white); font-family: inherit; font-weight: 600;
-      font-size: 1rem; text-align: left; transition: color .2s;
-    }
-    .acc-trigger:hover { color: var(--sky); }
-    .acc-index { min-width: 28px; font-size: .8rem; font-weight: 700; color: var(--sky); }
-    .acc-label { flex: 1; }
-    .acc-arrow { transition: transform .3s ease; color: var(--sky); flex-shrink: 0; }
-    .acc-arrow.open { transform: rotate(180deg); }
-    .acc-body {
-      max-height: 0; overflow: hidden; opacity: 0;
-      transition: max-height .4s ease, opacity .3s ease;
-    }
-    .acc-body.open { opacity: 1; }
-    .acc-inner { padding: 0 24px 24px; }
-    .acc-inner hr { border: none; border-top: 1px solid var(--glass-bd); margin-bottom: 20px; }
-    .acc-inner p { color: var(--muted); margin-bottom: 12px; }
-    .acc-inner p.highlight { color: var(--white); }
-    .acc-inner p.italic { font-style: italic; }
-    .cta-mini {
-      display: inline-flex; align-items: center; gap: 4px; margin-top: 14px;
-      color: var(--sky); font-size: .875rem; font-weight: 500; text-decoration: none;
-      border-bottom: 1px solid rgba(56,189,248,.3); padding-bottom: 2px;
-      transition: all .2s ease;
-    }
-    .cta-mini:hover { color: #60D4FA; border-bottom-color: rgba(56,189,248,.6); }
+    /* EMAIL CAPTURE */
+    .email-capture { margin: 32px auto 0; max-width: 420px; background: rgba(255,255,255,.04); border: 1px solid rgba(56,189,248,.2); border-radius: var(--radius-lg); padding: 28px 28px 24px; text-align: left; }
+    .email-capture-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .email-capture-sub { font-size: .85rem; color: var(--muted); margin-bottom: 18px; line-height: 1.5; }
+    .email-capture input { width: 100%; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 12px 16px; font-family: inherit; font-size: .95rem; color: var(--white); outline: none; transition: border-color .2s; margin-bottom: 10px; }
+    .email-capture input::placeholder { color: var(--muted); }
+    .email-capture input:focus { border-color: rgba(56,189,248,.5); }
+    .email-capture .btn-submit { width: 100%; background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); color: #fff; font-family: inherit; font-weight: 700; font-size: .95rem; padding: 13px 20px; border-radius: 10px; border: none; cursor: pointer; transition: all .3s ease; box-shadow: 0 0 20px var(--orange-glow); }
+    .email-capture .btn-submit:hover { box-shadow: 0 0 35px rgba(249,115,22,.65); transform: translateY(-1px); }
+    .email-capture .btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+    .email-capture .skip-link { display: block; text-align: center; margin-top: 12px; font-size: .8rem; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+    .email-capture .skip-link:hover { color: var(--white); }
+    .email-capture-success { text-align: center; padding: 8px 0 4px; }
+    .email-capture-success .check { font-size: 2rem; margin-bottom: 10px; }
+    .email-capture-success p { font-size: .9rem; color: var(--muted); line-height: 1.5; }
+    .email-capture-success strong { color: var(--sky); }
 
-    /* ─── Offer ─── */
-    .offer-section { padding: 100px 0 120px; }
-    .offer-section p.main-p { color: var(--muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 20px; }
-    .offer-section p.sec-p  { color: var(--muted); font-size: .95rem; max-width: 560px; margin: 0 auto 48px; }
-    .cta-block { display: flex; flex-direction: column; align-items: center; gap: 18px; }
-    .guarantee { color: var(--muted); font-size: .8rem; display: flex; align-items: center; gap: 8px; letter-spacing: .04em; }
-    .g-dot { color: var(--glass-bd); }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-top: 64px; }
-    .feat-card { padding: 22px 16px; text-align: center; }
-    .feat-icon { font-size: 1.6rem; margin-bottom: 8px; }
-    .feat-label { font-size: .85rem; font-weight: 600; color: var(--muted); }
-
-    /* ─── Footer ─── */
     footer { border-top: 1px solid var(--glass-bd); padding: 32px 24px; text-align: center; }
     footer p { color: var(--muted); font-size: .8rem; }
 
-    /* ─── Scroll Reveal ─── */
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── Animations ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; } to { opacity: 1; }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes pulseGlow {
       0%,100% { box-shadow: 0 0 30px var(--orange-glow), 0 4px 16px rgba(249,115,22,.3); }
       50%      { box-shadow: 0 0 55px rgba(249,115,22,.65), 0 8px 26px rgba(249,115,22,.42); }
     }
-    .fade-up   { animation: fadeUp .75s ease both; }
-    .fade-in   { animation: fadeIn .75s ease both; }
-    .pulse     { animation: pulseGlow 2.6s ease-in-out infinite; }
-    .d1 { animation-delay: .1s; }
-    .d2 { animation-delay: .2s; }
-    .d3 { animation-delay: .3s; }
-    .d4 { animation-delay: .4s; }
-    .d5 { animation-delay: .5s; }
+    .fade-up { animation: fadeUp .75s ease both; }
+    .d1 { animation-delay: .1s; } .d2 { animation-delay: .2s; } .d3 { animation-delay: .3s; } .d4 { animation-delay: .4s; }
 
-    /* ─── Responsive ─── */
     @media (max-width: 640px) {
       section { padding: 70px 0; }
-      .hero { padding: 80px 0 70px; }
+      .hero { padding: 80px 0 50px; }
       .quiz-wrap { padding: 28px 22px; }
       .result-card { padding: 34px 22px; }
-      .acc-trigger { padding: 16px 18px; }
-      .acc-inner { padding: 0 18px 20px; }
       .trust { gap: 18px; }
       .btn-cta { font-size: .95rem; padding: 14px 26px; }
       h2 { font-size: 1.65rem; }
+      .email-capture { padding: 22px 18px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Background glow orbs -->
 <div class="orbs">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
@@ -286,37 +177,14 @@
 
 <div class="wrap">
 
-  <!-- ══════════ HERO ══════════ -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="badge fade-up">
-        <span class="badge-dot"></span>
-        Herramienta gratuita de diagnóstico
-      </div>
-
-      <h1 class="fade-up d1">
-        ¿Qué tipo de decisor eres?<br>
-        <span class="sky">Descúbrelo ahora</span>
-      </h1>
-
-      <p class="sub fade-up d2">
-        Identifica tu estilo de decisión y cómo mejorarlo en minutos
-      </p>
-
-      <p class="desc fade-up d3">
-        Este TEST te ayudará a entender tu patrón de toma de decisiones y te
-        ofrecerá recomendaciones personalizadas. Toma el control de tu vida y
-        aprende a decidir sin culpa.
-      </p>
-
-      <div class="hero-cta fade-up d4">
-        <a href="#quiz" class="btn-cta pulse">
-          Empezar el TEST
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <div class="trust fade-up d5">
+      <div class="badge fade-up"><span class="badge-dot"></span>Herramienta gratuita de diagnóstico</div>
+      <h1 class="fade-up d1">¿Qué tipo de decisor eres?<br><span class="sky">Descúbrelo ahora</span></h1>
+      <p class="sub fade-up d2">Identifica tu estilo de decisión y cómo mejorarlo en minutos</p>
+      <p class="desc fade-up d3">Responde 6 preguntas y descubrí exactamente por qué te cuesta decidir — y qué podés hacer hoy para cambiarlo.</p>
+      <div class="trust fade-up d4">
         <div class="trust-item"><span>⚡</span> Solo 2 minutos</div>
         <div class="trust-item"><span>🎯</span> Resultado inmediato</div>
         <div class="trust-item"><span>🔒</span> Sin registro</div>
@@ -326,59 +194,41 @@
 
   <div class="divider"></div>
 
-  <!-- ══════════ INSTRUCTIONS ══════════ -->
+  <!-- INSTRUCCIONES -->
   <section>
     <div class="container">
       <div class="center reveal">
-        <h2>¿Cómo usar esta herramienta?</h2>
-        <p class="muted" style="max-width:460px;margin:14px auto 0;">Tres pasos simples para descubrir tu perfil de decisor</p>
+        <h2>¿Cómo funciona?</h2>
+        <p class="muted" style="max-width:460px;margin:14px auto 0;">Cuatro pasos simples para descubrir tu perfil de decisor</p>
       </div>
-
       <div class="steps-grid">
-        <div class="glass glass-hover step-card reveal" style="transition-delay:.0s">
-          <div class="step-inner">
-            <div class="step-num">01</div>
-            <div>
-              <h3>Responde con honestidad</h3>
-              <p>Responde cada pregunta seleccionando la opción que más te represente.</p>
-            </div>
-          </div>
+        <div class="glass glass-hover step-card reveal">
+          <div class="step-inner"><div class="step-num">01</div><div><h3>Respondé con honestidad</h3><p>Seleccioná la opción que más te represente en cada pregunta.</p></div></div>
         </div>
         <div class="glass glass-hover step-card reveal" style="transition-delay:.1s">
-          <div class="step-inner">
-            <div class="step-num">02</div>
-            <div>
-              <h3>Avanza pregunta a pregunta</h3>
-              <p>Haz clic en "Siguiente" para avanzar a la siguiente pregunta.</p>
-            </div>
-          </div>
+          <div class="step-inner"><div class="step-num">02</div><div><h3>Avanzá pregunta a pregunta</h3><p>Hacé clic en "Siguiente" para ir avanzando en el diagnóstico.</p></div></div>
         </div>
         <div class="glass glass-hover step-card reveal" style="transition-delay:.2s">
-          <div class="step-inner">
-            <div class="step-num">03</div>
-            <div>
-              <h3>Recibe tu perfil</h3>
-              <p>Al final, recibirás tu perfil de decisor y consejos para mejorar tu confianza.</p>
-            </div>
-          </div>
+          <div class="step-inner"><div class="step-num">03</div><div><h3>Descubrí tu perfil</h3><p>Al terminar, recibís tu tipo de decisor y qué está afectando tu claridad.</p></div></div>
+        </div>
+        <div class="glass glass-hover step-card step-highlight reveal" style="transition-delay:.3s">
+          <div class="step-inner"><div class="step-num">04</div><div><h3>Recibí una herramienta extra gratis</h3><p>Dejá tu email y te enviamos otra herramienta práctica para que empieces a decidir mejor hoy.</p></div></div>
         </div>
       </div>
-
-      <div class="motivator reveal" style="transition-delay:.3s">¡Vamos a descubrirlo!</div>
+      <div class="motivator reveal" style="transition-delay:.4s">¡Vamos a descubrirlo!</div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- ══════════ QUIZ ══════════ -->
+  <!-- QUIZ -->
   <section id="quiz">
     <div class="container-quiz">
       <div class="center reveal" style="margin-bottom:48px;">
         <h2>Tu diagnóstico de decisor</h2>
-        <p class="muted" style="margin-top:12px;">Responde estas 6 preguntas para descubrir tu perfil</p>
+        <p class="muted" style="margin-top:12px;">Respondé estas 6 preguntas para descubrir tu perfil</p>
       </div>
 
-      <!-- Quiz card -->
       <div id="quiz-card" class="glass quiz-wrap reveal">
         <div class="quiz-header">
           <div class="quiz-meta">
@@ -387,234 +237,60 @@
           </div>
           <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
         </div>
-
         <p class="quiz-question" id="q-text"></p>
-
         <div class="options" id="options"></div>
-
         <div class="quiz-actions">
           <button class="btn-cta" id="btn-next" disabled onclick="nextQuestion()" style="animation:none;">
-            Siguiente
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Siguiente <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
       </div>
 
-      <!-- Result card (hidden initially) -->
       <div id="result-card" style="display:none;"></div>
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- ══════════ ACCORDION ══════════ -->
-  <section>
-    <div class="container">
-      <div class="center reveal">
-        <h2>Ahora que conoces tu estilo, descubre la verdad detrás de tus <span class="sky">creencias limitantes</span></h2>
-        <p class="muted" style="max-width:540px;margin:16px auto 0;">
-          Vamos a desmontar las creencias que pueden estar afectando tu capacidad para decidir con confianza.
-        </p>
-      </div>
-
-      <div class="accordion-list">
-
-        <div class="glass acc-item reveal" style="transition-delay:0s">
-          <button class="acc-trigger" onclick="toggleAcc(this)">
-            <span class="acc-index">01</span>
-            <span class="acc-label">¿Por qué me siento ansioso al decidir?</span>
-            <svg class="acc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="acc-body">
-            <div class="acc-inner">
-              <hr>
-              <p>Es normal sentir ansiedad al tomar decisiones. Muchas personas lo sienten, y eso está bien.</p>
-              <p class="highlight">Sin embargo, la ansiedad puede ser una señal de que estás abrumado por demasiadas opciones. La clave es simplificar.</p>
-              <p class="italic">Adoptar un enfoque más simple puede liberarte de la presión y permitirte decidir con calma.</p>
-              <a href="https://go.hotmart.com/K106051077A" class="cta-mini" target="_blank" rel="noopener">
-                Descubre cómo Decide Fácil te ayuda a enfrentar tus decisiones.
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass acc-item reveal" style="transition-delay:.1s">
-          <button class="acc-trigger" onclick="toggleAcc(this)">
-            <span class="acc-index">02</span>
-            <span class="acc-label">¿Por qué a veces regreso a la parálisis?</span>
-            <svg class="acc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="acc-body">
-            <div class="acc-inner">
-              <hr>
-              <p>Recuperar la confianza en la toma de decisiones puede ser un proceso complicado.</p>
-              <p class="highlight">Hay momentos en que la vida se siente abrumadora, pero eso no significa que no puedas avanzar.</p>
-              <p class="italic">Lo importante es contar con herramientas adecuadas que te orienten a salir de la parálisis.</p>
-              <a href="https://go.hotmart.com/K106051077A" class="cta-mini" target="_blank" rel="noopener">
-                Conoce las herramientas de Decide Fácil.
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass acc-item reveal" style="transition-delay:.2s">
-          <button class="acc-trigger" onclick="toggleAcc(this)">
-            <span class="acc-index">03</span>
-            <span class="acc-label">¿Por qué no soy capaz de decidir como antes?</span>
-            <svg class="acc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="acc-body">
-            <div class="acc-inner">
-              <hr>
-              <p>Tu mente puede estar saturada y eso afecta tu capacidad de juicio.</p>
-              <p class="highlight">Esto no significa que no tengas la capacidad, solo que necesitas un poco de apoyo.</p>
-              <p class="italic">Recuerda que con las herramientas apropiadas, puedes potenciar tu capacidad de decisión.</p>
-              <a href="https://go.hotmart.com/K106051077A" class="cta-mini" target="_blank" rel="noopener">
-                Descubre cómo Decide Fácil puede ser lo que necesitas.
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ══════════ OFFER ══════════ -->
-  <section class="offer-section">
-    <div class="container-sm center">
-      <div class="reveal">
-        <div class="badge badge-orange" style="margin-bottom:28px;">
-          <span class="badge-dot"></span>
-          Próximo paso
-        </div>
-        <h2 style="margin-bottom:24px;">
-          Ahora que sabes tu estilo de decisión, <span class="sky">es hora de actuar</span>
-        </h2>
-      </div>
-
-      <p class="main-p reveal">
-        Entender tu estilo de toma de decisiones es el primer paso hacia la mejora.
-        Decide Fácil te ofrece un sistema práctico que te permitirá decidir sin culpa
-        y recuperar tu confianza.
-      </p>
-
-      <p class="sec-p reveal">
-        Con Decide Fácil, recibirás herramientas prácticas que te ayudarán a simplificar
-        tu toma de decisiones y a actuar de manera efectiva.
-      </p>
-
-      <div class="cta-block reveal">
-        <a href="https://go.hotmart.com/K106051077A" class="btn-cta" target="_blank" rel="noopener" style="font-size:1.1rem;padding:18px 44px;">
-          Accede a Decide Fácil ahora
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <p class="guarantee">
-          <span>Acceso inmediato</span>
-          <span class="g-dot">•</span>
-          <span>Garantía de 7 días</span>
-          <span class="g-dot">•</span>
-          <span>Sin riesgo</span>
-        </p>
-      </div>
-
-      <div class="features-grid">
-        <div class="glass glass-hover feat-card reveal" style="transition-delay:0s"><div class="feat-icon">🧠</div><div class="feat-label">Claridad mental</div></div>
-        <div class="glass glass-hover feat-card reveal" style="transition-delay:.1s"><div class="feat-icon">⚡</div><div class="feat-label">Tecnología moderna</div></div>
-        <div class="glass glass-hover feat-card reveal" style="transition-delay:.2s"><div class="feat-icon">🎯</div><div class="feat-label">Resultados reales</div></div>
-        <div class="glass glass-hover feat-card reveal" style="transition-delay:.3s"><div class="feat-icon">🔒</div><div class="feat-label">Sin riesgo</div></div>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /wrap -->
+</div>
 
 <footer>
   <p>© <span id="year"></span> Decide Fácil — Todos los derechos reservados</p>
 </footer>
 
 <script>
-  /* ─── Quiz data ─── */
   const QUESTIONS = [
-    {
-      q: "Cuando se trata de decisiones importantes, ¿cómo te sientes?",
-      opts: [{ l:"A", t:"Confundido" }, { l:"B", t:"Tranquilo" }, { l:"C", t:"Ansioso" }]
-    },
-    {
-      q: "¿Cuánto tiempo te toma decidir en situaciones cotidianas?",
-      opts: [{ l:"A", t:"Más de una hora" }, { l:"B", t:"Menos de 10 minutos" }, { l:"C", t:"Entre 10 minutos y una hora" }]
-    },
-    {
-      q: "¿Te arrepientes frecuentemente de tus decisiones?",
-      opts: [{ l:"A", t:"Sí" }, { l:"B", t:"A veces" }, { l:"C", t:"No" }]
-    },
-    {
-      q: "¿Sientes presión al decidir entre varias opciones?",
-      opts: [{ l:"A", t:"Siempre" }, { l:"B", t:"A veces" }, { l:"C", t:"Nunca" }]
-    },
-    {
-      q: "¿Te gusta tener varias alternativas al tomar decisiones?",
-      opts: [{ l:"A", t:"No, me abruma" }, { l:"B", t:"Sí, pero a veces me confunde" }, { l:"C", t:"Totalmente de acuerdo" }]
-    },
-    {
-      q: "¿Qué tipo de decisiones te resultan más difíciles?",
-      opts: [{ l:"A", t:"Las cotidianas (comida, ropa)" }, { l:"B", t:"Las importantes (trabajo, relaciones)" }, { l:"C", t:"Ninguna" }]
-    }
+    { q: "Cuando se trata de decisiones importantes, ¿cómo te sentís?", opts: [{ l:"A", t:"Confundido" }, { l:"B", t:"Tranquilo" }, { l:"C", t:"Ansioso" }] },
+    { q: "¿Cuánto tiempo te lleva decidir en situaciones cotidianas?", opts: [{ l:"A", t:"Más de una hora" }, { l:"B", t:"Menos de 10 minutos" }, { l:"C", t:"Entre 10 minutos y una hora" }] },
+    { q: "¿Te arrepentís frecuentemente de tus decisiones?", opts: [{ l:"A", t:"Sí" }, { l:"B", t:"A veces" }, { l:"C", t:"No" }] },
+    { q: "¿Sentís presión al decidir entre varias opciones?", opts: [{ l:"A", t:"Siempre" }, { l:"B", t:"A veces" }, { l:"C", t:"Nunca" }] },
+    { q: "¿Te gusta tener varias alternativas al tomar decisiones?", opts: [{ l:"A", t:"No, me abruma" }, { l:"B", t:"A veces, pero me confunde" }, { l:"C", t:"Sí, me ayuda a decidir mejor" }] },
+    { q: "¿Qué tipo de decisiones te resultan más difíciles?", opts: [{ l:"A", t:"Las cotidianas (comida, ropa)" }, { l:"B", t:"Las importantes (trabajo, relaciones)" }, { l:"C", t:"Ninguna" }] }
   ];
 
   const PROFILES = {
-    confused: {
-      icon: "🧩", name: "Decisor Confundido",
-      desc: "Tiendes a sentirte abrumado y con poca confianza al tomar decisiones. La saturación mental afecta tu juicio y necesitas herramientas para simplificar el proceso.",
-      bg: "rgba(249,115,22,.12)", bd: "rgba(249,115,22,.35)", color: "#FB923C"
-    },
-    efficient: {
-      icon: "⚡", name: "Decisor Eficiente",
-      desc: "Tienes habilidad natural para decidir, pero te agobia el exceso de opciones. Con el sistema correcto, puedes elevar tu efectividad al siguiente nivel.",
-      bg: "rgba(56,189,248,.1)", bd: "rgba(56,189,248,.35)", color: "#38BDF8"
-    },
-    secure: {
-      icon: "🎯", name: "Decisor Seguro",
-      desc: "Tu confianza te permite decidir de manera efectiva. Aun así, optimizar tu proceso te dará aún más claridad y velocidad en decisiones complejas.",
-      bg: "rgba(34,197,94,.08)", bd: "rgba(34,197,94,.3)", color: "#4ADE80"
-    }
+    confused: { icon: "🧩", name: "Decisor Confundido", desc: "Tu cerebro está procesando demasiado al mismo tiempo. No es falta de capacidad — es sobrecarga. Necesitás un sistema que reduzca las opciones antes de que llegues a decidir.", bg: "rgba(249,115,22,.12)", bd: "rgba(249,115,22,.35)", color: "#FB923C" },
+    efficient: { icon: "⚡", name: "Decisor Eficiente", desc: "Tenés habilidad natural para decidir, pero el exceso de opciones te frena. Con el sistema correcto podés eliminar esa fricción y decidir con más velocidad y confianza.", bg: "rgba(56,189,248,.1)", bd: "rgba(56,189,248,.35)", color: "#38BDF8" },
+    secure:    { icon: "🎯", name: "Decisor Seguro", desc: "Tu confianza te permite avanzar. Lo que más te ayuda ahora es optimizar el proceso para las decisiones complejas — donde la claridad marca la diferencia real.", bg: "rgba(34,197,94,.08)", bd: "rgba(34,197,94,.3)", color: "#4ADE80" }
   };
 
-  const HOTMART = "https://go.hotmart.com/K106051077A";
+  const HOTMART = "https://rancognitive.com";
+  const SYSTEME_URL = "https://menteclara1740.systeme.io/decide-quiz";
 
-  /* ─── State ─── */
-  let current = 0;
-  let selected = null;
-  let answers = [];
+  let current = 0, selected = null, answers = [];
 
-  /* ─── Init ─── */
   document.getElementById("year").textContent = new Date().getFullYear();
   renderQuestion();
 
-  /* ─── Render question ─── */
   function renderQuestion() {
     const q = QUESTIONS[current];
     const pct = Math.round((current / QUESTIONS.length) * 100);
-
     document.getElementById("q-label").textContent = `Pregunta ${current + 1} de ${QUESTIONS.length}`;
     document.getElementById("q-pct").textContent   = `${pct}% completado`;
     document.getElementById("progress").style.width = `${pct}%`;
     document.getElementById("q-text").textContent  = q.q;
 
     const btnNext = document.getElementById("btn-next");
-    btnNext.textContent = current + 1 >= QUESTIONS.length ? "Ver mi resultado" : "Siguiente";
-    const icon = document.createElementNS("http://www.w3.org/2000/svg","svg");
-    icon.setAttribute("width","16"); icon.setAttribute("height","16"); icon.setAttribute("viewBox","0 0 24 24");
-    icon.setAttribute("fill","none"); icon.setAttribute("stroke","currentColor"); icon.setAttribute("stroke-width","2");
-    const path = document.createElementNS("http://www.w3.org/2000/svg","path");
-    path.setAttribute("d","M5 12h14M12 5l7 7-7 7");
-    icon.appendChild(path); btnNext.appendChild(icon);
-
+    btnNext.innerHTML = (current + 1 >= QUESTIONS.length ? "Ver mi resultado" : "Siguiente") +
+      `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
     selected = null;
     btnNext.disabled = true;
 
@@ -629,7 +305,6 @@
     });
   }
 
-  /* ─── Select option ─── */
   function selectOption(el, letter) {
     document.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
     el.classList.add("selected");
@@ -637,20 +312,13 @@
     document.getElementById("btn-next").disabled = false;
   }
 
-  /* ─── Next question ─── */
   function nextQuestion() {
     if (!selected) return;
     answers.push(selected);
-
-    if (current + 1 >= QUESTIONS.length) {
-      showResult();
-    } else {
-      current++;
-      renderQuestion();
-    }
+    if (current + 1 >= QUESTIONS.length) { showResult(); }
+    else { current++; renderQuestion(); }
   }
 
-  /* ─── Compute profile ─── */
   function computeProfile() {
     const a = answers.filter(x => x === "A").length;
     const c = answers.filter(x => x === "C").length;
@@ -659,35 +327,81 @@
     return PROFILES.efficient;
   }
 
-  /* ─── Show result ─── */
   function showResult() {
     const p = computeProfile();
-
     document.getElementById("quiz-card").style.display = "none";
 
     const rc = document.getElementById("result-card");
     rc.style.display = "block";
-    rc.className = "result-card";
     rc.style.cssText = `display:block; background:${p.bg}; border:1px solid ${p.bd}; border-radius:20px; padding:44px 40px; text-align:center; animation:fadeUp .6s ease forwards;`;
 
     rc.innerHTML = `
       <div class="result-emoji">${p.icon}</div>
       <span class="result-badge" style="background:${p.bg}; border:1px solid ${p.bd}; color:${p.color};">Tu perfil</span>
       <h3 class="result-name" style="color:${p.color}; font-size:1.9rem; font-weight:900; letter-spacing:-.025em; margin:16px 0;">${p.name}</h3>
-      <p class="result-desc" style="color:var(--muted); line-height:1.7; max-width:460px; margin:0 auto 32px;">${p.desc}</p>
-      <div class="result-actions" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-        <a href="${HOTMART}" class="btn-cta" target="_blank" rel="noopener">
-          Mejora tu decisión ahora
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <button class="btn-sky" onclick="restartQuiz()">Repetir quiz</button>
+      <p class="result-desc" style="color:var(--muted); line-height:1.7; max-width:460px; margin:0 auto 24px;">${p.desc}</p>
+
+      <div class="email-capture" id="email-capture-box">
+        <div class="email-capture-title">🎁 Recibí una herramienta extra, gratis</div>
+        <div class="email-capture-sub">Dejá tu email y te enviamos otra herramienta práctica para que empieces a decidir mejor hoy mismo.</div>
+        <input type="text"  id="cap-nombre" placeholder="Tu nombre" autocomplete="given-name" />
+        <input type="email" id="cap-email"  placeholder="Tu email" autocomplete="email" />
+        <button class="btn-submit" id="cap-submit" onclick="submitCapture()">Quiero mi herramienta gratis →</button>
+        <span class="skip-link" onclick="skipCapture()">No gracias, ver la herramienta ahora</span>
+      </div>
+
+      <div id="result-cta" style="display:none; margin-top:28px;">
+        <div class="result-actions">
+          <a href="${HOTMART}" class="btn-cta" target="_blank" rel="noopener">
+            Mejorá tu toma de decisiones ahora
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <button class="btn-sky" onclick="restartQuiz()">Repetir quiz</button>
+        </div>
       </div>
     `;
 
     rc.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
-  /* ─── Restart ─── */
+  function submitCapture() {
+    const nombre = document.getElementById("cap-nombre").value.trim();
+    const email  = document.getElementById("cap-email").value.trim();
+    if (!nombre) { document.getElementById("cap-nombre").focus(); return; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("cap-email").focus(); return; }
+
+    const btn = document.getElementById("cap-submit");
+    btn.disabled = true;
+    btn.textContent = "Enviando...";
+
+    const form = document.createElement("form");
+    form.method = "POST"; form.action = SYSTEME_URL; form.target = "hidden-iframe"; form.style.display = "none";
+    const addField = (name, val) => { const i = document.createElement("input"); i.type = "hidden"; i.name = name; i.value = val; form.appendChild(i); };
+    addField("first_name", nombre);
+    addField("email", email);
+    const iframe = document.createElement("iframe");
+    iframe.name = "hidden-iframe"; iframe.style.display = "none";
+    document.body.appendChild(iframe);
+    document.body.appendChild(form);
+    form.submit();
+
+    setTimeout(() => {
+      document.getElementById("email-capture-box").innerHTML = `
+        <div class="email-capture-success">
+          <div class="check">✅</div>
+          <p>¡Listo, <strong>${nombre}</strong>! Revisá tu bandeja de entrada — en minutos te llega tu herramienta extra.</p>
+        </div>
+      `;
+      document.getElementById("result-cta").style.display = "block";
+    }, 800);
+  }
+
+  function skipCapture() {
+    document.getElementById("email-capture-box").style.display = "none";
+    document.getElementById("result-cta").style.display = "block";
+    document.getElementById("result-cta").scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   function restartQuiz() {
     current = 0; selected = null; answers = [];
     document.getElementById("result-card").style.display = "none";
@@ -696,35 +410,11 @@
     document.getElementById("quiz-card").scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
-  /* ─── Accordion ─── */
-  function toggleAcc(trigger) {
-    const item = trigger.closest(".acc-item");
-    const body = item.querySelector(".acc-body");
-    const arrow = trigger.querySelector(".acc-arrow");
-    const inner = body.querySelector(".acc-inner");
-    const isOpen = body.classList.contains("open");
-
-    // Close all others
-    document.querySelectorAll(".acc-body.open").forEach(b => {
-      b.classList.remove("open");
-      b.style.maxHeight = "0";
-      b.closest(".acc-item").querySelector(".acc-arrow").classList.remove("open");
-    });
-
-    if (!isOpen) {
-      body.classList.add("open");
-      body.style.maxHeight = inner.scrollHeight + 40 + "px";
-      arrow.classList.add("open");
-    }
-  }
-
-  /* ─── Scroll reveal ─── */
   (function initReveal() {
-    const observer = new IntersectionObserver(entries => {
+    const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
     }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
-
-    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
   })();
 </script>
 </body>
