@@ -374,15 +374,12 @@
     btn.disabled = true;
     btn.textContent = "Enviando...";
 
-    // Usar API de Systeme.io para registrar el contacto
-    fetch('https://api.systeme.io/api/contacts', {
+    // Registrar contacto en Systeme.io via Railway (evita CORS)
+    fetch('https://rancognitive.com/api/trpc/checkout.subscribeToSysteme', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-API-Key': '1n6c0sbb4mvtov2tz55fvszhn8ad6egzopxzb1nk9fe50uj0ad8m9428utcmewj9'
-      },
-      body: JSON.stringify({ email: email, firstName: nombre, fields: [] })
-    }).catch(() => {}); // silenciar errores de red
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ json: { firstName: nombre, email: email } })
+    }).catch(() => {});
 
     setTimeout(() => {
       document.getElementById("email-capture-box").innerHTML = `
