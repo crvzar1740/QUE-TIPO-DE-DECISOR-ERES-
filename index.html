@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-HW6GDF56MR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HW6GDF56MR');
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>¿Qué tipo de decisor eres? | Decide Fácil</title>
@@ -329,6 +336,7 @@
 
   function showResult() {
     const p = computeProfile();
+    gtag('event', 'quiz_completado', { perfil: p.name });
     document.getElementById("quiz-card").style.display = "none";
 
     const rc = document.getElementById("result-card");
@@ -347,7 +355,7 @@
         <input type="text"  id="cap-nombre" placeholder="Tu nombre" autocomplete="given-name" />
         <input type="email" id="cap-email"  placeholder="Tu email" autocomplete="email" />
         <button class="btn-submit" id="cap-submit" onclick="submitCapture()">Quiero mi herramienta gratis →</button>
-        <span class="skip-link" onclick="skipCapture()">No gracias, ver la herramienta ahora</span>
+        <span class="skip-link" onclick="skipCapture()">No gracias, quiero conocer el SISTEMA que me ayude ahora</span>
       </div>
 
       <div id="result-cta" style="display:none; margin-top:28px;">
@@ -382,6 +390,7 @@
     }).catch(() => {});
 
     setTimeout(() => {
+      gtag('event', 'email_capturado');
       document.getElementById("email-capture-box").innerHTML = `
         <div class="email-capture-success">
           <div class="check">✅</div>
@@ -393,6 +402,7 @@
   }
 
   function skipCapture() {
+    gtag('event', 'skip_a_hotmart');
     window.location.href = HOTMART;
   }
 
