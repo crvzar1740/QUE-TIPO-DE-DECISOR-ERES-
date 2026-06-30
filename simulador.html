@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HW6GDF56MR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HW6GDF56MR');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>¿Estás listo para decidir? — Decide Fácil</title>
@@ -700,6 +707,14 @@
 
     const score = computeScore();
     const verdict = getVerdict(score, answers.impact, answers.urgency, answers.state);
+
+    gtag('event', 'simulador_completado', {
+      veredicto: verdict.label,
+      puntuacion: score,
+      impacto: answers.impact,
+      estado: answers.state
+    });
+
     const impactLabels = ['Del día a día', 'Importante', 'Alto impacto'];
     const hoursLabels = ['< 2 horas', '2–4 horas', '4–6 horas', '> 6 horas'];
     const stateLabels = ['Saturado', 'Cansado', 'Bien', 'Con claridad'];
@@ -767,7 +782,7 @@
         <div class="cta-banner">
           <div class="cta-banner-title">¿Querés un sistema para tomar mejores decisiones todos los días?</div>
           <div class="cta-banner-sub">Decide Fácil te da 3 herramientas prácticas para eliminar la parálisis decisional y recuperar la confianza en tu propio juicio — en minutos, no en horas.</div>
-          <a href="https://rancognitive.com" class="btn-cta-banner" target="_blank" rel="noopener">
+          <a href="https://rancognitive.com" class="btn-cta-banner" target="_blank" rel="noopener" onclick="gtag('event', 'cta_clic_simulador', { veredicto: '${verdict.label}' })">
             Conocer Decide Fácil
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
